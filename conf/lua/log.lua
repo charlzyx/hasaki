@@ -1,0 +1,2 @@
+local log = {};
+return log;
