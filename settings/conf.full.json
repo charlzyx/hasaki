@@ -1,0 +1,40 @@
+{
+  "using": "p_demo",
+  "version": 1,
+  "desc": "",
+  "projects": [
+    {
+      "id": "p_demo",
+      "name": "示例",
+      "desc": "hello, hasaki",
+      "rules": [
+        {
+          "use": true,
+          "weight": "1",
+          "id": "r_demo1",
+          "dispatch": {
+            "to": "http://127.0.0.1:3000$1"
+          },
+          "name": "默认规则",
+          "desc": "默认走这个",
+          "capture": {
+            "match": "(.*)"
+          }
+        },
+        {
+          "use": true,
+          "weight": "9",
+          "id": "r_demo2",
+          "dispatch": {
+            "to": "http://127.0.0.1:9999$1"
+          },
+          "capture": {
+            "match": "/api/(.*)"
+          },
+          "desc": "/api 开头走这里",
+          "name": "Api"
+        }
+      ]
+    }
+  ]
+}
